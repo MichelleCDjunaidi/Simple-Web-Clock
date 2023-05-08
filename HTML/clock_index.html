@@ -11,25 +11,27 @@
             <div class="circle">
                 <div id="hours">00</div>
             </div>
-        </div>
-        <div id="time">
+        
             <div class="circle">
                 <div id="minutes">00</div>
             </div>
-        </div>
-        <div id="time">
-            <div class="circle">
-                <div id="hours">00</div>
-            </div>
-        </div>
-        <div id="time">
+        
+        
             <div class="circle">
                 <div id="seconds">00</div>
             </div>
+        
+            <!-- aka a(m)p(m) -->
+            <div class="ap">
+                <div id="ampm"> </div>AM</div>
+            </div>
         </div>
-        <!-- aka a(m)p(m) -->
-        <div class="ap">
-            <div id="ampm"> </div>AM</div>
-        </div>
+
+        <script>
+            let hours = document.getElementById('hours'); 
+            let minutes = document.getElementById('minutes');
+            let seconds = document.getElementById('seconds');
+            let ap = document.getElementById('ampm')
+        </script>
     </body>
 </html>

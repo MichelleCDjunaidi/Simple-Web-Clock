@@ -1,0 +1,25 @@
+/* practice on how to import google fonts etc */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap');
+/* what's this star for? figure it out later! */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    background: #2f363e;
+}
+/* refer to the div ids of the body */
+#time
+{
+    display: flex;
+    gap: 40px;
+    color: #fff;
+}
