@@ -40,6 +40,7 @@ body
     position: relative;
     width: 150px;
     height: 150px;
+    transform: rotate(270deg);
 }
 /* for controlling the first mentioned circle */
 #time .circle svg circle
@@ -56,6 +57,7 @@ body
 {
     /* set variable color from the html */
     stroke: var(--clr);
+    stroke-dasharray: 200;
     stroke-width: 4;
     transform: translate(5px, 5px);
 }
