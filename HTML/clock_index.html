@@ -8,11 +8,12 @@
     </head>
     <body>
         <div id="time">
-            <div class="circle" style="--clr:#55a894;">
-                <!-- circle svg -->
+            <div class="circle" style="--clr:#38607c;">
+                <!-- circle of embedded svg -->
                 <svg>
                     <circle cx="70" cy="70" r="70"></circle>
-                    <circle cx="70" cy="70" r="70"></circle>
+                    <!-- id the colored ring outside so we can refer to it later -->
+                    <circle cx="70" cy="70" r="70" id="hh"></circle>
                 </svg>
                 <div id="hours">00</div>
             </div>
@@ -20,7 +21,7 @@
             <div class="circle" style="--clr:#8bd0ba;">
                 <svg>
                     <circle cx="70" cy="70" r="70"></circle>
-                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70" id="mm"></circle>
                 </svg>
                 <div id="minutes">00</div>
             </div>
@@ -29,7 +30,7 @@
             <div class="circle" style="--clr:#fff8c0;">
                 <svg>
                     <circle cx="70" cy="70" r="70"></circle>
-                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70" id="ss"></circle>
                 </svg>
                 <div id="seconds">00</div>
             </div>
@@ -48,9 +49,15 @@
             let seconds = document.getElementById('seconds');
             let ap = document.getElementById('ampm')
 
-            let h = new Date().getHours();
-            let m = new Date().getMinutes();
-            let s = new Date().getSeconds();
+            let hh = document.getElementById('hh');
+            let mm = document.getElementById('mm');
+            let ss = document.getElementById('ss');
+
+            let d = new Date();
+
+            let h = d.getHours();
+            let m = d.getMinutes();
+            let s = d.getSeconds();
             // if h>=12, write PM, else AM
             // put the check here so the PM and AM is correct first 
             // before we convert to 12 hour clock
@@ -62,6 +69,7 @@
             }
             h = (h < 10) ? "0" + h: h;
             m = (m < 10) ? "0" + m: m;
+            s = (s < 10) ? "0" + s: s;
             
             hours.innerHTML = h;
             minutes.innerHTML = m;
@@ -69,6 +77,13 @@
             seconds.innerHTML = s;
             // overwrites default AM
             ampm.innerHTML = am;
+
+            // controls the fullness of the clock
+            hh.style.strokeDashoffset = 440 - (440 * h) / 12;
+            mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+            ss.style.strokeDashoffset = 440 - (440 * s) /60;
+
+            
             })
 
         </script>
